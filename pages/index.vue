@@ -8,7 +8,7 @@ export default {
 }
 </script> -->
 
-<template>
+<!-- <template>
   <div class="landing-page">
     <section class="landing-hero pt-5">
       <div class="header__bg"></div>
@@ -456,9 +456,9 @@ export default {
     <CallToAction />
     <Footer/>
   </div>
-</template>
+</template> -->
 
 <!-- tampilkan hello world -->
-<!-- <template>
+<template>
   <h1>Hello world!</h1>
-</template> -->
+</template>
