@@ -1,4 +1,5 @@
 export default {
+    buildModules: ['@nuxtjs/tailwindcss'], // ini baru ditambahin
     // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
     ssr: false,
 
@@ -7,7 +8,7 @@ export default {
 
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
-        title: 'senabungserang',
+        title: 'senabung',
         meta: [
             { charset: 'utf-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -18,7 +19,7 @@ export default {
     },
 
     // Global CSS: https://go.nuxtjs.dev/config-css
-    css: [],
+    css: ['@/assets/css/tailwind.css'],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [],
@@ -27,10 +28,7 @@ export default {
     components: true,
 
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-    buildModules: [
-        // https://go.nuxtjs.dev/tailwindcss
-        '@nuxtjs/tailwindcss',
-    ],
+    buildModules: [],
 
     // Modules: https://go.nuxtjs.dev/config-modules
     modules: [

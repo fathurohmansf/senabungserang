@@ -1,7 +1,7 @@
 <template>
             <header class="flex items-center">
             <div style="height: 54px" class="pr-5">
-              <img src="/static/logo.svg" alt="logo" class="h-full" />
+              <img src="/logo.svg" alt="logo" class="h-full" />
             </div>
             <ul class="flex items-center">
               <li>

@@ -1,71 +1,9 @@
-<!-- <template>
-  <Tutorial />
-</template>
-
-<script>
-export default {
-  name: 'IndexPage',
-}
-</script> -->
-
-<!-- <template>
+<template>
   <div class="landing-page">
     <section class="landing-hero pt-5">
-      <div class="header__bg"></div>
+      <div  class="header__bg"></div>
       <div class="container mx-auto relative">
-        <header class="flex items-center">
-          <div style="height: 54px" class="pr-5">
-            <img src="/static/logo.svg" alt="logo" class="h-full" />
-          </div>
-          <ul class="flex items-center">
-            <li>
-              <a
-                class="text-white hover:text-teal-500 text-lg px-4 py-3"
-                href="/"
-                >Home</a
-              >
-            </li>
-            <li>
-              <a
-                class="text-white hover:text-teal-500 text-lg px-4 py-3"
-                href="/projects.html"
-                >Project</a
-              >
-            </li>
-            <li>
-              <a
-                class="text-white hover:text-teal-500 text-lg px-4 py-3"
-                href="/features.html"
-                >Features</a
-              >
-            </li>
-            <li>
-              <a
-                class="text-white hover:text-teal-500 text-lg px-4 py-3"
-                href="/story.html"
-                >Success Stories</a
-              >
-            </li>
-          </ul>
-          <ul class="flex ml-auto items-center mt-2">
-            <li>
-              <a
-                href="/register.html"
-                class="inline-block bg-transparent border-white border hover:bg-white hover:bg-opacity-25 text-white font-light w-40 text-center px-6 py-1 text-lg rounded-full mr-4"
-              >
-                Sign Up
-              </a>
-            </li>
-            <li>
-              <a
-                href="/login.html"
-                class="inline-block bg-transparent border-white border hover:bg-white hover:bg-opacity-25 text-white font-light w-40 text-center px-6 py-1 text-lg rounded-full"
-              >
-                My Account
-              </a>
-            </li>
-          </ul>
-        </header>
+        <Navbar />
         <div class="flex items-center pt-10 px-5 md:px-0">
           <div class="w-1/2">
             <h1 class="text-4xl text-white mb-5">
@@ -79,13 +17,13 @@ export default {
             </p>
             <button
               @click="$router.push({ path: '/' })"
-              class="block bg-orange-button hover:bg-green-button text-white font-semibold px-12 py-3 text-xl rounded-full"
+              class="block bg-orange-500 hover:bg-orange-700 text-white font-semibold px-12 py-3 text-xl rounded-full"
             >
               Find a Project
             </button>
           </div>
           <div class="w-1/2 flex justify-center">
-            <img src="/static/hero-image@2x.png" alt="crowdfunding project" />
+            <img src="/hero-image@2x.png" alt="crowdfunding project" />
           </div>
         </div>
       </div>
@@ -101,13 +39,13 @@ export default {
       </div>
       <div class="flex">
         <div class="w-full px-56 mb-5">
-          <img src="/static/line-step.svg" alt="" class="w-full" />
+          <img src="/line-step.svg" alt="" class="w-full" />
         </div>
       </div>
       <div class="flex justify-between items-center text-center">
         <div class="w-1/3">
           <figure class="flex justify-center items-center">
-            <img src="/static/step-1-illustration.svg" alt="" class="h-30 mb-8" />
+            <img src="/step-1-illustration.svg" alt="" class="h-30 mb-8" />
           </figure>
           <div class="step-content">
             <h3 class="font-medium">Sign Up</h3>
@@ -118,7 +56,7 @@ export default {
         </div>
         <div class="w-1/3">
           <figure class="flex justify-center items-center -mt-24">
-            <img src="/static/step-2-illustration.svg" alt="" class="h-30 mb-8" />
+            <img src="/step-2-illustration.svg" alt="" class="h-30 mb-8" />
           </figure>
           <div class="step-content">
             <h3 class="font-medium">Open Project</h3>
@@ -130,7 +68,7 @@ export default {
         </div>
         <div class="w-1/3">
           <figure class="flex justify-center items-center -mt-48">
-            <img src="/static/step-3-illustration.svg" alt="" class="h-30 mb-8" />
+            <img src="/step-3-illustration.svg" alt="" class="h-30 mb-8" />
           </figure>
           <div class="step-content">
             <h3 class="font-medium">Execute</h3>
@@ -163,7 +101,7 @@ export default {
           <div class="item">
             <figure class="item-image">
               <img
-                src="/static/project-thumbnail-1.jpg"
+                src="/project-thumbnail-1.jpg"
                 alt=""
                 class="rounded-20 w-full"
               />
@@ -204,7 +142,7 @@ export default {
           <div class="item">
             <figure class="item-image">
               <img
-                src="/static/project-thumbnail-2.jpg"
+                src="/project-thumbnail-2.jpg"
                 alt=""
                 class="rounded-20 w-full"
               />
@@ -245,7 +183,7 @@ export default {
           <div class="item">
             <figure class="item-image">
               <img
-                src="/static/project-thumbnail-3.jpg"
+                src="/project-thumbnail-3.jpg"
                 alt=""
                 class="rounded-20 w-full"
               />
@@ -288,7 +226,7 @@ export default {
           <div class="item">
             <figure class="item-image">
               <img
-                src="/static/project-thumbnail-4.jpg"
+                src="/project-thumbnail-4.jpg"
                 alt=""
                 class="rounded-20 w-full"
               />
@@ -329,7 +267,7 @@ export default {
           <div class="item">
             <figure class="item-image">
               <img
-                src="/static/project-thumbnail-5.jpg"
+                src="/project-thumbnail-5.jpg"
                 alt=""
                 class="rounded-20 w-full"
               />
@@ -370,7 +308,7 @@ export default {
           <div class="item">
             <figure class="item-image">
               <img
-                src="/static/project-thumbnail-6.jpg"
+                src="/project-thumbnail-6.jpg"
                 alt=""
                 class="rounded-20 w-full"
               />
@@ -418,7 +356,7 @@ export default {
       </div>
       <div class="flex mb-10">
         <div class="w-2/12 flex justify-center items-start">
-          <img src="/static/testimonial-line.svg" alt="" />
+          <img src="/testimonial-line.svg" alt="" />
         </div>
         <div class="w-8/12 mt-16">
           <h2 class="text-3xl text-gray-900 font-light">
@@ -433,17 +371,17 @@ export default {
           </div>
           <div class="testimonial-icon mt-10">
             <img
-              src="/static/testimonial-1-icon.png"
+              src="/testimonial-1-icon.png"
               alt=""
               class="w-20 mr-5 inline-block testimonial-user rounded-full"
             />
             <img
-              src="/static/testimonial-2-icon.png"
+              src="/testimonial-2-icon.png"
               alt=""
               class="w-20 mr-5 inline-block testimonial-user rounded-full"
             />
             <img
-              src="/static/testimonial-3-icon.png"
+              src="/testimonial-3-icon.png"
               alt=""
               class="w-20 mr-5 inline-block testimonial-user active rounded-full"
             />
@@ -456,9 +394,10 @@ export default {
     <CallToAction />
     <Footer/>
   </div>
-</template> -->
-
-<!-- tampilkan hello world -->
-<template>
-  <h1>Hello world!</h1>
 </template>
+
+<!-- <template>
+  <div>
+    <h1>Hallo</h1>
+  </div>
+</template> -->

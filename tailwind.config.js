@@ -1,6 +1,7 @@
-/** @type {import('tailwindcss').Config} */
+import { join } from 'path'
+
 export default {
-    content: [],
+    // ...
     theme: {
         extend: {
             boxShadow: {
@@ -21,19 +22,23 @@ export default {
     fontFamily: {
         sans: ["Poppins", "sans-serif"],
     },
-    variants: {},
-    plugins: [],
-    content: [
-        `${srcDir}/components/**/*.{vue,js,ts}`,
-        `${srcDir}/layouts/**/*.vue`,
-        `${srcDir}/pages/**/*.vue`,
-        `${srcDir}/composables/**/*.{js,ts}`,
-        `${srcDir}/plugins/**/*.{js,ts}`,
-        `${srcDir}/utils/**/*.{js,ts}`,
-        `${srcDir}/App.{js,ts,vue}`,
-        `${srcDir}/app.{js,ts,vue}`,
-        `${srcDir}/Error.{js,ts,vue}`,
-        `${srcDir}/error.{js,ts,vue}`,
-        `${srcDir}/app.config.{js,ts}`
-    ]
+    purge: [
+        './components/**/*.{vue,js}',
+        './layouts/**/*.vue',
+        './pages/**/*.vue',
+        './plugins/**/*.{js,ts}',
+        './nuxt.config.{js,ts}',
+    ],
+    build: {
+        postcss: {
+            postcssOptions: {
+                plugins: {
+                    tailwindcss: join(__dirname, 'tailwind.config.js'),
+                    'postcss-pxtorem': {
+                        propList: ['*', '!border*']
+                    }
+                }
+            }
+        }
+    }
 }
