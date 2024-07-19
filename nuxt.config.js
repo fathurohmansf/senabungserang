@@ -1,5 +1,5 @@
 export default {
-    buildModules: ['@nuxtjs/tailwindcss'], // ini baru ditambahin
+    // buildModules: [, ], // ini baru ditambahin
     // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
     ssr: false,
 
@@ -28,7 +28,11 @@ export default {
     components: true,
 
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-    buildModules: ['@nuxt/postcss8'],
+    buildModules: [
+        '@nuxt/postcss8',
+        '@nuxtjs/tailwindcss',
+        // '/modules/ngrok'
+    ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
     modules: [
@@ -36,14 +40,48 @@ export default {
         '@nuxtjs/axios',
         // https://go.nuxtjs.dev/pwa
         '@nuxtjs/pwa',
+        // dari nuxt js 2 auth
+        '@nuxtjs/auth',
         // https://go.nuxtjs.dev/tailwindcss
         '@nuxtjs/tailwindcss',
+        // Auth Axios
+        '@nuxtjs/auth-next',
     ],
 
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
     axios: {
         // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-        baseURL: '/',
+        // INTEGRASI API
+        baseURL: 'https://6490-158-140-180-34.ngrok-free.app',
+    },
+    auth: {
+        strategies: {
+            local: {
+                token: {
+                    property: 'token',
+                    global: true,
+                    // required: true,
+                    // type: 'Bearer'
+                },
+                user: {
+                    property: 'user',
+                    // autoFetch: true
+                },
+                endpoints: {
+                    login: {
+                        url: '/api/v1/sessions',
+                        method: 'post',
+                        propertyName: 'data.token'
+                    },
+                    logout: false,
+                    user: {
+                        url: '/api/v1/users/fetch',
+                        method: 'get',
+                        propertyName: 'data'
+                    },
+                }
+            }
+        }
     },
 
     // PWA module configuration: https://go.nuxtjs.dev/pwa

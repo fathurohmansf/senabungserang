@@ -1,5 +1,5 @@
 <template>
-          <div class="h-screen flex justify-center items-center">
+          <div class="h-screen flex justify-center items-center auth-page">
         <div
           class="hidden md:block lg:w-1/3 bg-white h-full auth-background rounded-tr-lg rounded-br-lg"
         ></div>
