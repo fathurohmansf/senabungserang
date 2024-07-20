@@ -31,7 +31,8 @@ export default {
     buildModules: [
         '@nuxt/postcss8',
         '@nuxtjs/tailwindcss',
-        // '/modules/ngrok'
+        // '@nuxtjs/ngrok',
+        '~/modules/ngrok',
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
@@ -52,7 +53,7 @@ export default {
     axios: {
         // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
         // INTEGRASI API
-        baseURL: 'https://6490-158-140-180-34.ngrok-free.app',
+        baseURL: 'http://localhost:8080',
     },
     auth: {
         strategies: {
@@ -68,21 +69,18 @@ export default {
                     // autoFetch: true
                 },
                 endpoints: {
-                    login: {
-                        url: '/api/v1/sessions',
-                        method: 'post',
-                        propertyName: 'data.token'
-                    },
+                    login: { url: '/api/v1/sessions', method: 'post', propertyName: 'data.token' },
                     logout: false,
-                    user: {
-                        url: '/api/v1/users/fetch',
-                        method: 'get',
-                        propertyName: 'data'
-                    },
+                    user: { url: '/api/v1/users/fetch', method: 'get', propertyName: 'data' },
                 }
             }
         }
     },
+
+    // ngrok: {
+    //     // module options
+    //     authtoken: '2jSnPzvbEAvhpWzqsc3ip3mZhGb_2Z4JgLg58GhfUbFHE6rtN',
+    // },
 
     // PWA module configuration: https://go.nuxtjs.dev/pwa
     pwa: {
