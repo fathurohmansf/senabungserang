@@ -176,23 +176,3 @@ export default {
   },
 }
 </script>
-
-<!-- <template>
-  <div>
-    <h1>Welcome to Nuxt.js with Ngrok</h1>
-    <p>Ngrok Public URL: {{ ngrokUrl }}</p>
-  </div>
-</template>
-
-<script>
-export default {
-  async asyncData({ $axios }) {
-    const ngrokUrl = 'https://6490-158-140-180-34.ngrok-free.app'; // Ngrok URL
-    return { ngrokUrl };
-  }
-}
-</script>
-
-<style scoped>
-/* Your styles here */
-</style> -->

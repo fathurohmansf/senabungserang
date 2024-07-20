@@ -69,12 +69,20 @@ export default {
                     // autoFetch: true
                 },
                 endpoints: {
-                    login: { url: '/api/v1/sessions', method: 'post', propertyName: 'data.token' },
+                    login: {
+                        url: '/api/v1/sessions',
+                        method: 'post',
+                        propertyName: 'data.token',
+                    },
                     logout: false,
-                    user: { url: '/api/v1/users/fetch', method: 'get', propertyName: 'data' },
-                }
-            }
-        }
+                    user: {
+                        url: '/api/v1/users/fetch',
+                        method: 'get',
+                        propertyName: 'data',
+                    },
+                },
+            },
+        },
     },
 
     // ngrok: {

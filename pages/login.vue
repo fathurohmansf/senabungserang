@@ -15,6 +15,7 @@
                 >
                 <input
                   type="email"
+                  v-model="login.email"
                   class="auth-form focus:outline-none focus:bg-purple-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
                   placeholder="Write your email address here"
                   value="julia.keeva@gmail.com"
@@ -28,6 +29,7 @@
                 >
                 <input
                   type="password"
+                  v-model="login.password"
                   class="auth-form focus:outline-none focus:bg-purple-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
                   placeholder="Write your password here"
                   value="nasigorenglimaribbu"
@@ -59,8 +61,27 @@
 
 <script>
 export default {
-  layout: 'auth'
-}
+  layout: 'auth',
+  data() {
+    return {
+      login: {
+        email: '',
+        password: '',
+      }
+    }
+  },
+    methods: {
+      async userLogin(){
+      try{
+        let response = await this.$auth.lognWith('local', { data: this.login })
+        this.$auth.setUser(response.data.data)
+        console.log(response)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }
+  }
 </script>
 
 // arti scoped itu jadi sytling nya hanya di halaman ini aja bukan di halaman lain
