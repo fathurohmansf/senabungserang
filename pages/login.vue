@@ -18,7 +18,6 @@
                   v-model="login.email"
                   class="auth-form focus:outline-none focus:bg-purple-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
                   placeholder="Write your email address here"
-                  value="julia.keeva@gmail.com"
                 />
               </div>
             </div>
@@ -28,18 +27,18 @@
                   >Password</label
                 >
                 <input
+                  @keyup.enter="userLogin"
                   type="password"
                   v-model="login.password"
                   class="auth-form focus:outline-none focus:bg-purple-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
                   placeholder="Write your password here"
-                  value="nasigorenglimaribbu"
                 />
               </div>
             </div>
             <div class="mb-6">
               <div class="mb-4">
                 <button
-                  @click="$router.push({ path: '/upload' })"
+                  @click="userLogin"
                   class="block w-full bg-orange-button hover:bg-green-button text-white font-semibold px-6 py-4 text-lg rounded-full"
                 >
                   Sign In
@@ -72,13 +71,21 @@ export default {
   },
     methods: {
       async userLogin(){
-      try{
-        let response = await this.$auth.lognWith('local', { data: this.login })
-        this.$auth.setUser(response.data.data)
-        console.log(response)
+        try {
+        await this.$store.dispatch('auth/login', this.login)
+        this.$router.push({ path: '/' })
       } catch (error) {
+        this.errorMessage = 'Invalid email or password'
         console.log(error)
       }
+      // try{
+      //   let response = await this.$auth.loginWith('local', { data: this.login })
+      //   this.$auth.setUser(response.data.data)
+      //   console.log(response)
+      //   this.$router.push({ path: '/' })
+      // } catch (error) {
+      //   console.log(error)
+      // }
     }
   }
   }
