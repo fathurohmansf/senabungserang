@@ -26,7 +26,7 @@
       </li>
     </ul>
     <!-- logged in / logged out -->
-    <ul class="flex ml-auto items-center mt-2" v-if="!$store.state.auth.loggedIn">
+    <ul class="flex ml-auto items-center mt-2" v-if="!this.$store.state.auth.loggedIn">
       <li>
         <nuxt-link
           to="/register"
@@ -48,13 +48,13 @@
       <div class="dropdown inline-block relative z-10">
         <button class="bg-white text-gray-700 font-semibold py-4 px-6 rounded inline-flex items-center">
           <img
-            v-if="$store.state.auth.user.image_url"
+            v-if="this.$store.state.auth.user.image_url"
             :src="$axios.defaults.baseURL + '/' + $store.state.auth.user.image_url"
             alt=""
             class="h-8 rounded-full mr-2"
           >
           <span class="mr-1">
-            {{ $store.state.auth.user.name }}
+            {{ this.$store.state.auth.user.name }}
           </span>
           <svg
             class="fill-current h-4 w-4"
@@ -103,6 +103,4 @@ export default {
     }
   },
 }
-  // import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
-  // import { ChevronDownIcon } from '@heroicons/vue/20/solid'
 </script>
