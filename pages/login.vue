@@ -68,18 +68,10 @@ export default {
     async userLogin() {
       try{
         let response = await this.$auth.loginWith('local', { data: this.login })
-        this.$auth.setUser(response.data.data)
-        // Set the token and fetch user
-        // await this.$auth.setUserToken(response.data.data.token)
-        // await this.$auth.fetchUser()
-        // this.$store.state.auth.loggedIn
-        // this.$auth.loggedIn
         await this.$auth.setUserToken(response.data.data.token)
         await this.$auth.fetchUser()
-        // this.$auth.setUser(user)
-        await this.$axios.$get('/api/v1/users/fetch')
-        console.log(response)
         this.$router.push({ path: '/' })
+        console.log(response)
       } catch (error) {
         console.log(error)
       }

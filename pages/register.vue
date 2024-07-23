@@ -101,16 +101,10 @@ export default {
     async userRegister() {
       try {
         let response = await this.$axios.post('/api/v1/users', this.register)
-        this.$auth.setUser(response.data.data)
+        await this.$auth.setUserToken(response.data.data.token)
+        await this.$auth.fetchUser()
         console.log(response.data.data.token)
-        // Set the token
-        // await this.$auth.setUserToken(response.data.data.token)
-        // Fetch the user
-        // await this.$auth.fetchUser()
-        // Commit state change to Vuex store
-        // this.$store.commit('auth/SET_LOGGED_IN', true)
-        // this.$store.commit('auth/SET_USER', response.data.data)
-        this.$router.push({ path: '/upload' })
+        this.$router.push({ path: '/' })
       } catch (error) {
         console.log(error)
       }

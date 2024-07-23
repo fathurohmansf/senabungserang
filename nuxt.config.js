@@ -65,8 +65,8 @@ export default {
                     // type: 'Bearer'
                 },
                 user: {
-                    property: 'user',
-                    autoFetch: true
+                    property: 'data',
+                    // autoFetch: true
                 },
                 endpoints: {
                     login: {
@@ -75,6 +75,11 @@ export default {
                         propertyName: 'data.token',
                     },
                     logout: false,
+                    register: {
+                        url: '/api/v1/users',
+                        method: 'post',
+                        propertyName: 'data.token',
+                    },
                     user: {
                         url: '/api/v1/users/fetch',
                         method: 'get',
