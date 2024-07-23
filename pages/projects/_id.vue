@@ -44,7 +44,7 @@
               <div class="flex mt-3">
                 <div class="w-1/4">
                   <img
-                    src="/testimonial-1-icon.png"
+                  :src="$axios.defaults.baseURL + '/' + campaign.data.user.image_url"
                     alt=""
                     class="w-full inline-block rounded-full"
                   />
@@ -65,18 +65,29 @@
                   {{ perk }}
                 </li>
               </ul>
-              <input
+              <template v-if="this.$store.state.auth.loggedIn">
+                <input
                 type="number"
                 class="border border-gray-500 block w-full px-6 py-3 mt-4 rounded-full text-gray-800 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline"
                 placeholder="Amount in Rp"
-                value=""
+                v-model.number="transactions.amount"
+                @keyup.enter="fund"
               />
-              <nuxt-link
-                to="/fund-success"
+              <button
+              @click="fund"
                 class="text-center mt-3 button-cta block w-full bg-orange-button hover:bg-green-button text-white font-medium px-6 py-3 text-md rounded-full"
               >
                 Fund Now
-              </nuxt-link>
+            </button>
+              </template>
+              <template v-else>
+                <button
+                @click="$router.push({path: '/login'})"
+                class="text-center mt-3 button-cta block w-full bg-orange-button hover:bg-green-button text-white font-medium px-6 py-3 text-md rounded-full"
+                >
+                Sign to Fund
+              </button>
+              </template>
             </div>
           </div>
         </div>
@@ -124,8 +135,6 @@
 </template>
 
 <script>
-import { data } from 'autoprefixer';
-
 export default {
   async asyncData({ $axios, params }) {
     const campaign = await $axios.$get('/api/v1/campaigns/' + params.id); // ambil params berdasarkan id
@@ -135,9 +144,9 @@ export default {
     return{
       default_image: '',
       // untuk ambil data transaction
-      transaction: {
-        amout: 0,
-        campaign_id: Number.perseInt(this.$route.params.id),
+      transactions: {
+        amount: 0,
+        campaign_id: Number.parseInt(this.$route.params.id),
       }
     }
   },
@@ -145,20 +154,21 @@ export default {
     changeImage(url) {
       this.default_image = url
     },
+    // Post data transaction
     async fund() {
       try {
       let response = await this.$axios.post(
         '/api/v1/transactions',
         this.transactions,
       )
-      window.location = response.data.payment_url
+      window.location = response.data.data.payment_url
       console.log(response)
     } catch (error) {
       console.log(error)
     }
     }
   },
-  //mounted ini digunakan untuk ketika content sudah di munculkan
+  // //mounted ini digunakan untuk ketika content sudah di munculkan
   mounted() {
     this.default_image = this.$axios.defaults.baseURL + '/' + this.campaign.data.image_url
   }
