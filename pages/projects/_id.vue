@@ -124,6 +124,8 @@
 </template>
 
 <script>
+import { data } from 'autoprefixer';
+
 export default {
   async asyncData({ $axios, params }) {
     const campaign = await $axios.$get('/api/v1/campaigns/' + params.id); // ambil params berdasarkan id
@@ -131,12 +133,29 @@ export default {
   },
   data() {
     return{
-      default_image: ''
+      default_image: '',
+      // untuk ambil data transaction
+      transaction: {
+        amout: 0,
+        campaign_id: Number.perseInt(this.$route.params.id),
+      }
     }
   },
   methods: {
     changeImage(url) {
       this.default_image = url
+    },
+    async fund() {
+      try {
+      let response = await this.$axios.post(
+        '/api/v1/transactions',
+        this.transactions,
+      )
+      window.location = response.data.payment_url
+      console.log(response)
+    } catch (error) {
+      console.log(error)
+    }
     }
   },
   //mounted ini digunakan untuk ketika content sudah di munculkan
