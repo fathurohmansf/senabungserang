@@ -104,7 +104,7 @@ export default {
         await this.$auth.setUserToken(response.data.data.token)
         await this.$auth.fetchUser()
         console.log(response.data.data.token)
-        this.$router.push({ path: '/' })
+        this.$router.push({ path: '/upload' })
       } catch (error) {
         console.log(error)
       }

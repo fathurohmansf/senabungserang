@@ -107,7 +107,8 @@
               </p>
               <div class="relative pt-4 progress-bar">
                 <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200 h-3 rounded-lg">
-                  <div :style="'width:' + (campaign.current_amount / campaign.goal_amount) * 100 + '%'"
+                  <div
+                  :style="'width:' + (campaign.current_amount / campaign.goal_amount) * 100 + '%'"
                     class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-purple-progress progress-striped">
                   </div>
                 </div>
