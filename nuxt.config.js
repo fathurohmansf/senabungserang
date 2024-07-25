@@ -55,6 +55,10 @@ export default {
         // INTEGRASI API
         baseURL: 'http://localhost:8080',
     },
+    // Add Middleware
+    router: {
+        middleware: ['auth']
+    },
     auth: {
         strategies: {
             local: {
