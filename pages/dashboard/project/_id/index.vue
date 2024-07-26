@@ -67,16 +67,17 @@ import Navbar from '~/components/Navbar.vue';
           </div>
         </div>
         <div class="flex justify-between items-center">
-          <div class="w-3/4 mr-6">
+          <div class="w-2/4 mr-6">
             <h3 class="text-2xl text-gray-900 mb-4 mt-5">Gallery</h3>
           </div>
-          <div class="w-1/4 text-right">
-            <a
-              href="#"
-              class="bg-green-button hover:bg-green-button text-white font-bold px-4 py-1 rounded inline-flex items-center"
+          <div class="w-2/4 text-right">
+            <input type="file" ref="file" @change="selectedFile" class="border p-1 rounded overflow-hidden">
+            <button
+              @click="upload"
+              class="bg-green-button hover:bg-green-button text-white font-bold px-4 py-2 rounded inline-flex items-center"
             >
               Upload
-            </a>
+            </button>
           </div>
         </div>
         <div class="flex -mx-2">
@@ -148,8 +149,43 @@ export default {
   },
   data() {
     return {
-      amount: 0,
-      campaign_id:Number.parseInt(this.$route.params.id),
+      url: '',
+      selectedFile : undefined,
+    }
+  },
+  methods: {
+    // onFileChange(e) {
+    //   const file = e.target.files[0]
+    //   this.url = URL.createObjectURL(file)
+    //   this.selectedFiles = this.$refs.file.files
+    // },
+    selectedFile() {
+      this.selectedFiles = this.$refs.file.files
+    },
+    // fungsi untuk menload data image yg sudah di upload
+    async load() {
+      const campaign = await this.$axios.$get('/api/v1/campaigns' + this.$route.params.id)
+      this.campaign = campaign
+    },
+    // fungsi upload image
+    async upload(file){
+      let formData = new FormData()
+      formData.append('campaign_id', this.$route.params.id)
+      formData.append('file', this.selectedFiles.item(0))
+      formData.append('is_primary', true)
+      // lanjut proses upload
+      try {
+        let response = await this.$axios.post('/api/v1/campaign-images', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        })
+        console.log(response)
+        this.load()
+        this.selectedFile = undefined
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 }
