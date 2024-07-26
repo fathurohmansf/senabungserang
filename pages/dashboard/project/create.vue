@@ -16,12 +16,11 @@
             <h3 class="text-2xl text-gray-900 mb-4">Create New Projects</h3>
           </div>
           <div class="w-1/4 text-right">
-            <a
-              href="/dashboard/detail.html"
+            <button
               class="bg-green-button hover:bg-green-button text-white font-bold px-4 py-1 rounded inline-flex items-center"
             >
               Save
-            </a>
+            </button>
           </div>
         </div>
         <div class="block mb-2">
@@ -102,3 +101,30 @@
       <Footer />
     </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return{
+      campaign: {
+        name: '',
+        short_description: '',
+        description: '',
+        goal_amount: '',
+        perks: '',
+      }
+    }
+  },
+  methods: {
+    async createCampaign(){
+      try {
+        let response = await this.$axios.post('/api/v1/campaigns', this.campaign)
+        console.log(response)
+        this.$router.push({ path: '/dashboard' })
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }
+}
+</script>
