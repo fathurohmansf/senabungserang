@@ -19,7 +19,7 @@ import Navbar from '~/components/Navbar.vue';
           </div>
           <div class="w-1/4 text-right">
             <nuxt-link
-              to="/dashboard/project/create"
+              to="/dashboard/projects/create"
               class="bg-green-button hover:bg-green-button text-white font-bold px-4 py-1 rounded inline-flex items-center"
             >
               Edit
@@ -29,7 +29,7 @@ import Navbar from '~/components/Navbar.vue';
         <div class="block mb-2">
           <div class="w-full lg:max-w-full lg:flex mb-4">
             <div
-              class="border border-gray-400 bg-white rounded p-8 flex flex-col justify-between leading-normal"
+              class="w-full border border-gray-400 bg-white rounded p-8 flex flex-col justify-between leading-normal"
             >
               <div>
                 <div class="text-gray-900 font-bold text-xl mb-2">
@@ -139,3 +139,20 @@ import Navbar from '~/components/Navbar.vue';
       </section>
     </div>
 </template>
+
+<script>
+export default {
+  middleware: 'auth',
+  async asyncData ({ $axios, params }) {
+    const campaign = await $axios.$get('/api/v1/campaigns/' + params.id)
+    const transactions = await $axios.$get('/api/v1/campaigns/'+ params.id +'/transactions')
+    return {campaign, transactions}
+  },
+  data() {
+    return {
+      amount: 0,
+      campaign_id:Number.parseInt(this.$route.params.id),
+    }
+  }
+}
+</script>
