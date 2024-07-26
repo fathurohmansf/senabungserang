@@ -58,7 +58,7 @@
               </p>
             </div>
             <div class="flex items-center">
-              <button href="/dashboard/detail.html" class="bg-green-button text-white py-2 px-4 rounded">
+              <button class="bg-green-button text-white py-2 px-4 rounded">
                 Detail
               </button>
             </div>
