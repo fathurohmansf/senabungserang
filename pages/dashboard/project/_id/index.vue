@@ -71,7 +71,9 @@ import Navbar from '~/components/Navbar.vue';
             <h3 class="text-2xl text-gray-900 mb-4 mt-5">Gallery</h3>
           </div>
           <div class="w-2/4 text-right">
-            <input type="file" ref="file" @change="selectedFile" class="border p-1 rounded overflow-hidden">
+            <input type="file" ref="file"
+            @change="selectFile"
+            class="border p-1 rounded overflow-hidden">
             <button
               @click="upload"
               class="bg-green-button hover:bg-green-button text-white font-bold px-4 py-2 rounded inline-flex items-center"
@@ -80,33 +82,18 @@ import Navbar from '~/components/Navbar.vue';
             </button>
           </div>
         </div>
-        <div class="flex -mx-2">
+        <div class="grid grid-cols-4 gap-4 -mx-2">
           <div
-            class="relative w-1/4 bg-white m-2 p-2 border border-gray-400 rounded"
+            class="relative w-full bg-white m-2 p-2 border border-gray-400 rounded"
+            v-for="image in campaign.data.images" :key="image.image_url"
           >
             <figure class="item-thumbnail">
-              <img src="/project-slider-1.jpg" alt="" class="rounded w-full" />
-            </figure>
-          </div>
-          <div
-            class="relative w-1/4 bg-white m-2 p-2 border border-gray-400 rounded"
-          >
-            <figure class="item-thumbnail">
-              <img src="/project-slider-2.jpg" alt="" class="rounded w-full" />
-            </figure>
-          </div>
-          <div
-            class="relative w-1/4 bg-white m-2 p-2 border border-gray-400 rounded"
-          >
-            <figure class="item-thumbnail">
-              <img src="/project-slider-3.jpg" alt="" class="rounded w-full" />
-            </figure>
-          </div>
-          <div
-            class="relative w-1/4 bg-white m-2 p-2 border border-gray-400 rounded"
-          >
-            <figure class="item-thumbnail">
-              <img src="/project-slider-4.jpg" alt="" class="rounded w-full" />
+              <img
+              :src="$axios.defaults.baseURL +
+              '/'+
+               image.image_url"
+              alt=""
+              class="rounded w-full" />
             </figure>
           </div>
         </div>
@@ -154,21 +141,20 @@ export default {
     }
   },
   methods: {
-    // onFileChange(e) {
-    //   const file = e.target.files[0]
-    //   this.url = URL.createObjectURL(file)
-    //   this.selectedFiles = this.$refs.file.files
-    // },
-    selectedFile() {
+    selectFile() {
       this.selectedFiles = this.$refs.file.files
     },
     // fungsi untuk menload data image yg sudah di upload
     async load() {
-      const campaign = await this.$axios.$get('/api/v1/campaigns' + this.$route.params.id)
-      this.campaign = campaign
+      try {
+        const campaign = await this.$axios.$get('/api/v1/campaigns/' + this.$route.params.id)
+        this.campaign = campaign
+      } catch (error) {
+        console.error('Error loading campaign:', error)
+      }
     },
     // fungsi upload image
-    async upload(file){
+    async upload(){
       let formData = new FormData()
       formData.append('campaign_id', this.$route.params.id)
       formData.append('file', this.selectedFiles.item(0))
@@ -182,7 +168,7 @@ export default {
         })
         console.log(response)
         this.load()
-        this.selectedFile = undefined
+        this.selectedFiles = undefined
       } catch (error) {
         console.log(error)
       }

@@ -84,21 +84,17 @@
 
 <script>
 export default {
-  data() {
-    return {
-      campaign: {
-        name: '',
-        short_description: '',
-        description: '',
-        goal_amount: 0,
-        perks: '',
-      }
-    }
+  middleware: 'auth',
+  async asyncData({ $axios, params }){
+    const campaign = await $axios.$get('/api/v1/campaign/' + params.id)
+    return(campaign)
   },
+
   methods: {
     async save() {
       try {
-        let response = await this.$axios.post('/api/v1/campaigns', this.campaign)
+        let response = await this.$axios.$put(
+          '/api/v1/campaigns', this.$route.params.id,)
         console.log(response)
         this.$router.push(`/dashboard/project/${response.data.id}`)
         // this.$router.push({
