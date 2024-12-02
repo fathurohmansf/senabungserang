@@ -109,4 +109,8 @@ export default {
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {},
+    // For Build varcel
+    generate: {
+        dir: 'dist' // Output directory default
+    }
 }
