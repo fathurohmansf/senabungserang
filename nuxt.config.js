@@ -6,6 +6,11 @@ export default {
     // Target: https://go.nuxtjs.dev/config-target
     target: 'static',
 
+    // For Build varcel
+    generate: {
+        dir: 'public' // Output directory default
+    },
+
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
         title: 'senabung',
@@ -109,8 +114,4 @@ export default {
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {},
-    // For Build varcel
-    generate: {
-        dir: 'dist' // Output directory default
-    }
 }
