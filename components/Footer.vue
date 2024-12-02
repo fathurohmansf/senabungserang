@@ -3,35 +3,35 @@
         <div class="container mx-auto">
           <div class="sm:flex mb-4">
             <div class="sm:w-1/2 sm:mt-0 mt-8 h-auto">
-              <img src="/logo-footer.svg" alt="" class="mb-3" />
+              <img src="/logo_senabung_fix.svg" alt="" class="mb-2" />
               <p class="font-light">
-                Helps people execute their <br />bright ideas
+                Sedekah lebih mudah Terpercaya <br />dan Amanah
               </p>
             </div>
             <div class="sm:w-1/4 h-auto">
-              <div class="mb-8 font-bold">Explore</div>
+              <div class="mb-8 font-bold">Explorasi</div>
               <ul class="font-light">
-                <li class="mb-3">Our Services</li>
-                <li class="mb-3">Equity System</li>
-                <li class="mb-3">Refund</li>
-                <li class="mb-3">Shareholder</li>
+                <li class="mb-3">Pelayanan Kami</li>
+                <li class="mb-3">Sistem Ekuitas</li>
+                <li class="mb-3">Pengembalian dana</li>
+                <li class="mb-3">Pemegang saham</li>
               </ul>
             </div>
             <div class="sm:w-1/4 h-auto">
               <div class="mb-8 font-bold">Investor</div>
               <ul class="font-light">
-                <li class="mb-3">My Account</li>
-                <li class="mb-3">Top Startups</li>
-                <li class="mb-3">How-to Tutorials</li>
-                <li class="mb-3">Withdrawl</li>
+                <li class="mb-3">Akun Saya</li>
+                <li class="mb-3">Program Teratas</li>
+                <li class="mb-3">Tutorial Cara nya</li>
+                <li class="mb-3">Penarikan</li>
               </ul>
             </div>
             <div class="sm:w-1/4 h-auto">
               <div class="mb-8 font-bold">Office</div>
               <ul class="font-light">
-                <li class="mb-3">+021 2208 1996</li>
+                <li class="mb-3">+6289651801742</li>
                 <li class="mb-3">KBP, Serang</li>
-                <li class="mb-3">No.12 (Backer)</li>
+                <li class="mb-3">RT.01 RW.08 Kebaharan</li>
                 <li class="mb-3">support@senabungserang.id</li>
               </ul>
             </div>

@@ -21,7 +21,7 @@
           </ul>
         </div>
         <div class="w-1/4 text-right">
-          <nuxt-link to="/dashboard/project/create"
+          <nuxt-link to="/dashboard/projects/create"
             class="bg-orange-button hover:bg-green-button text-white font-bold py-4 px-4 rounded inline-flex items-center">
             + Create Campaign
           </nuxt-link>
@@ -58,7 +58,8 @@
               </p>
             </div>
             <div class="flex items-center">
-              <button class="bg-green-button text-white py-2 px-4 rounded">
+              <button
+              class="bg-green-button text-white py-2 px-4 rounded">
                 Detail
               </button>
             </div>

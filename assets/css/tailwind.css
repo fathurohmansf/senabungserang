@@ -2,7 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 body {
-    font-family: Poppins, sanf-serif;
+    font-family: Poppins, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 8px;
+    }
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 .auth-form {
@@ -29,7 +50,7 @@ body {
     background-repeat: no-repeat;
     background-color: #3b41e3;
     background-size: 250px;
-    height: 100px;
+    height: 120px;
 }
 
 .header__bg {

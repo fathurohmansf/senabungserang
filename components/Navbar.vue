@@ -1,9 +1,9 @@
 <template>
   <header class="flex items-center">
-    <div style="height: 54px" class="pr-5">
-      <img src="/logo.svg" alt="logo" class="h-full" />
-    </div>
-    <ul class="flex items-center">
+    <button style="height: 54px" class="pr-5">
+      <img src="/logo_senabung.png" alt="logo" class="h-full" />
+    </button>
+    <ul class="items-center lg:flex hidden">
       <li>
         <nuxt-link class="text-white hover:text-teal-500 text-lg px-4 py-3" to="/">
           Home
@@ -26,11 +26,11 @@
       </li>
     </ul>
     <!-- logged in / logged out -->
-    <ul class="flex ml-auto items-center mt-2" v-if="!this.$store.state.auth.loggedIn">
-      <li>
+    <ul class="flex ml-auto items-center mt-2 gap-2" v-if="!this.$store.state.auth.loggedIn">
+      <li  class="md:flex hidden">
         <nuxt-link
           to="/register"
-          class="inline-block bg-transparent border-white border hover:bg-white hover:bg-opacity-25 text-white font-light w-40 text-center px-6 py-1 text-lg rounded-full mr-4"
+          class="inline-block bg-transparent border-white border hover:bg-white hover:bg-opacity-25 text-white font-light w-40 text-center px-6 md:py-1 text-lg rounded-full"
         >
           Sign Up
         </nuxt-link>
@@ -38,9 +38,9 @@
       <li>
         <nuxt-link
           to="/login"
-          class="inline-block bg-transparent border-white border hover:bg-white hover:bg-opacity-25 text-white font-light w-40 text-center px-6 py-1 text-lg rounded-full"
+          class="inline-block bg-transparent border-white border hover:bg-white hover:bg-opacity-25 text-white font-light w-40 text-center px-6 md:py-1 text-lg rounded-full"
         >
-          My Account
+          Sign In
         </nuxt-link>
       </li>
     </ul>
@@ -87,6 +87,31 @@
         </ul>
       </div>
     </div>
+    <!-- MobileMenu -->
+    <div class="mobileMenu hidden">
+    <ul class="text-white text-xs font-bold gap-8">
+      <li>
+        <nuxt-link class="text-white hover:text-teal-500 text-lg px-4 py-3" to="/">
+          Home
+        </nuxt-link>
+      </li>
+      <li>
+        <nuxt-link class="text-white hover:text-teal-500 text-lg px-4 py-3" to="#">
+          Project
+        </nuxt-link>
+      </li>
+      <li>
+        <nuxt-link class="text-white hover:text-teal-500 text-lg px-4 py-3" to="#">
+          Features
+        </nuxt-link>
+      </li>
+      <li>
+        <nuxt-link class="text-white hover:text-teal-500 text-lg px-4 py-3" to="#">
+          Success Stories
+        </nuxt-link>
+      </li>
+    </ul>
+  </div>
   </header>
 </template>
 <style scoped>

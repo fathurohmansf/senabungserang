@@ -6,8 +6,12 @@
         </div>
       </section>
       <section class="container project-container mx-auto -mt-56">
-        <div class="flex mt-3">
-          <div class="w-3/4 mr-6">
+        <!-- <div class="flex mt-3"> -->
+          <div class="flex flex-col md:flex-row mt-3">
+          <!-- List Image from API -->
+          <!-- <div class="w-3/4 mr-6"> -->
+          <div class="w-full md:w-3/4 md:mr-6">
+            <!-- <div class="w-full md:w-3/4 order-1 md:order-2 mr-0 md:mr-6"> -->
             <div class="bg-white p-3 mb-3 border border-gray-400 rounded-20">
               <figure class="item-image">
                 <img
@@ -34,7 +38,8 @@
               </div>
             </div>
           </div>
-          <div class="w-1/4">
+          <!-- Project Leader -->
+          <div class="w-full md:w-1/4 order-2 md:order-1">
             <div
               class="bg-white w-full p-5 border border-gray-400 rounded-20 sticky"
               style="top: 15px"

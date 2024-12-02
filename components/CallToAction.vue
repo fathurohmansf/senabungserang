@@ -3,15 +3,15 @@
         <div class="container mx-auto">
           <div class="w-full text-center">
             <h1 class="text-5xl text-white font-semibold">
-              Easy way to funding
+              Cara mudah untuk berdonasi
               <br />
-              best idea and innovation
+              sisihkan uang terbaik anda
             </h1>
             <button
               @click="$router.push({ path: '/register' })"
               class="inline-block bg-orange-button hover:bg-green-button text-white font-semibold px-6 py-4 mt-8 text-lg rounded-full"
             >
-              Getting Start
+              Donasi Sekarang
             </button>
           </div>
         </div>
