@@ -5,8 +5,12 @@
       "src": "nuxt.config.js",
       "use": "@nuxtjs/vercel-builder",
       "config": {
+        "distDir": "public",
         "serverFiles": ["package.json"]
       }
     }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }

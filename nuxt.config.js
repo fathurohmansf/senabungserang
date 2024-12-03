@@ -8,7 +8,8 @@ export default {
 
     // For Build varcel
     generate: {
-        dir: 'public' // Output directory default
+        // dir: 'public', // Output directory default
+        fallback: true,
     },
 
     // Global page headers: https://go.nuxtjs.dev/config-head
@@ -37,7 +38,7 @@ export default {
         '@nuxt/postcss8',
         '@nuxtjs/tailwindcss',
         // '@nuxtjs/ngrok',
-        '~/modules/ngrok',
+        // '~/modules/ngrok',
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
@@ -113,5 +114,8 @@ export default {
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
-    build: {},
+    build: {
+      // optional for deploy
+    //   extractCSS: true,
+    },
 }
